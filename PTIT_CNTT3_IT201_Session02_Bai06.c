@@ -1,10 +1,12 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-    int n, arr[100];
+    int n, *arr;
     int position, value;
     printf("Nhap so phan tu: ");
     scanf("%d", &n);
+    arr = (int*)malloc((n + 1) * sizeof(int));
     for (int i = 0; i < n; i++) {
         printf("Nhap arr[%d]: ", i);
         scanf("%d", &arr[i]);
@@ -22,5 +24,5 @@ int main() {
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
+    free(arr);
     return 0;
-}
