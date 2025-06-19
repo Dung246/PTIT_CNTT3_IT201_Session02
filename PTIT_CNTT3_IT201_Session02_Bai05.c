@@ -1,18 +1,20 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
-    int n, arr[100];
+    int n, *arr;
     int position;
     do {
         printf("Nhap so phan tu : ");
         scanf("%d", &n);
     } while (n <= 0 || n > 100);
+    arr = (int*)malloc(n * sizeof(int));
     for (int i = 0; i < n; i++) {
         printf("Nhap arr[%d]: ", i);
         scanf("%d", &arr[i]);
     }
     do {
-        printf("Nhap vi tri muon xoa (0 <= vitri < %d): ", n);
+        printf("Nhap vi tri muon xoa: ", n);
         scanf("%d", &position);
     } while (position < 0 || position >= n);
     for (int i = position; i < n - 1; i++) {
@@ -24,5 +26,7 @@ int main() {
         printf("%d ", arr[i]);
     }
     printf("\n");
+    free(arr);
     return 0;
 }
+
