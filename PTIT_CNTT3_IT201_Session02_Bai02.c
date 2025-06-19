@@ -1,12 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     int n, x;
-    int arr[100];
+    int *arr;
     do {
         printf("Nhap so phan tu cua mang: ");
         scanf("%d", &n);
     } while (n <= 0 || n > 100);
+    arr = (int *)malloc(n * sizeof(int));
     for (int i = 0; i < n; i++) {
         printf("Nhap arr[%d]: ", i);
         scanf("%d", &arr[i]);
@@ -19,6 +21,7 @@ int main() {
             count++;
         }
     }
-    printf("So %d xuat hien %d lan trong mang.\n", x, count);
+    printf("So %d xuat hien %d  lan trong mang.\n", x, count);
+    free(arr);
     return 0;
 }
