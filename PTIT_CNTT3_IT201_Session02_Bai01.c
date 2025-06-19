@@ -1,12 +1,14 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main() {
     int n;
-    int arr[100];
+    int *arr;
     do {
-        printf("Nhap so phan tu la: ");
+        printf("Nhap so phan tu la : ");
         scanf("%d", &n);
     } while (n <= 0 || n > 100);
+    arr = (int*)malloc(n * sizeof(int));
     for (int i = 0; i < n; i++) {
         printf("Nhap phan tu arr[%d]: ", i);
         scanf("%d", &arr[i]);
@@ -18,6 +20,7 @@ int main() {
         }
     }
     printf("Phan tu co gia tri lon nhat trong mang la: %d\n", max);
-
+    free(arr);
     return 0;
 }
+
